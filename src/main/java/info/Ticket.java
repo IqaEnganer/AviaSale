@@ -3,7 +3,7 @@ package info;
 import lombok.Data;
 
 @Data
-public class Ticket implements Comparable<Ticket> {
+public class Ticket {
     private int id;
     private String from;
     private String to;
@@ -22,10 +22,4 @@ public class Ticket implements Comparable<Ticket> {
         this.travelTimeMin = travelTime;
 
     }
-
-    @Override
-    public int compareTo(Ticket o) {
-        return this.price - o.price;
-    }
-
 }

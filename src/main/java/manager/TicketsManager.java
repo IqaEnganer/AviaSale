@@ -22,7 +22,6 @@ public class TicketsManager {
 
     public void findAll() {
         repository.findAll();
-        return;
     }
 
 

@@ -31,23 +31,28 @@ class TicketsManagerTest {
         manager.add(t7);
         manager.add(t8);
         manager.add(t9);
+        manager.remove(5);
     }
+
     // Проверка поиска билета по аэропорту отправления и прибытия
     @Test
     public void shouldSearchByFromAndTO() {
         assertArrayEquals(new Ticket[]{t2}, manager.searchFromTO("MOW", "DME"));
     }
+
     // Проверка возможности поиска только по двум критериям (Отправлениe и прибытиe)
     @Test
-    public void shouldNotSearchByFrom(){
-        assertArrayEquals(new Ticket[0],manager.searchFromTO("MOW","123"));
-        assertArrayEquals(new Ticket[0],manager.searchFromTO("123","DME"));
+    public void shouldNotSearchByFrom() {
+        assertArrayEquals(new Ticket[0], manager.searchFromTO("MOW", "123"));
+        assertArrayEquals(new Ticket[0], manager.searchFromTO("123", "DME"));
     }
+
     // Проверка несуществующих билетов
     @Test
-    public void shouldShowNothing(){
-        assertArrayEquals(new Ticket[0],manager.searchFromTO("123","123"));
+    public void shouldShowNothing() {
+        assertArrayEquals(new Ticket[0], manager.searchFromTO("123", "123"));
     }
+
     // Проверка поиска одинаковых билетов по Отправлению и Прибытию
     @Test
     public void shouldSearchSimilarFromAndTo() {
